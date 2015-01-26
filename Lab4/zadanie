@@ -1,0 +1,15 @@
+napisanie funkcji setFPU
+getFPU - sprawdzenie czy faktyvcznie się zmieniło
+sprawdzić czy wynik jest faktycznie inny
+
+########################################
+napisać program który oblicza całkę, 1/x 
+od 0,001 do 1000
+wykorzystać stos zeminnoprzecinkowy
+//całka 10^6 iteracji
+funkcja rtdsc - zwraca 64 bity - liczba cykli procesora od jego uruchomienia
+//sprawdzic jak dokladnie dziala ta fukcja
+
+history | grep polecenie
+
+

@@ -1,0 +1,16 @@
+*RDTSC
+*alokujemy dużą tablicę double albo float
+*odwołujemy się do kolejnych elementów
+*za każdym razem sprawdzamy czas
+
+//tam gdzie jest wolnie - zmiana lini
+//trzeba użyć danych bo kompilator może oszukiwać
+//odczyt i zapis do pamięci  (odczytać zmodyfikować, zapisać)
+//jeśli przekroczony jest "plik" stronicowania będą skoki pamięci
+//wszystko w potęgach 2
+  
+
++ duża tablica 
++ nie alokowac jako zmienna loolna bo takie dane lądują na stosie
++ w pętli czytanie kolejnych pól tablicy 
++ wyświetlać i wczęsniej mierzyć czas

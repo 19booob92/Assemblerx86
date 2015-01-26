@@ -1,0 +1,5 @@
+Program w C napisany od podstaw, o wiele krótszy kod,prostrzy niż poprzedni, szybszy.
+Funkcja konwertujaca znajduje sie w osobnym pliku, jest roznwiez napsiana od podstaw w asemblerze.
+Funkcja dodajaca, dziala ale jedynie w wersji w jezyku C, zamieszczam wersję w asemblerze ale funkcja ta zwraca pusty wynik, prawdopodobnie problemem jest bledne uzywanie sotsu)
+
+OStrzezenie o uzyciu funkcji gets w programie glownym w C, wynika z odchodzeniu od stosowania tej funkcji nie wpywa ona jednak na dzialanie progeamu a uzycie wlasnie tej funkcji bylo dla mnie wygodniejsze niz uzycie innych.

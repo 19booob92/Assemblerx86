@@ -1,0 +1,17 @@
+Proszę:
+- poczytać o działaniu instrukcji RDTSC, RDTSCP
+- zapoznać się z wszystkimi plikami w katalogach common/lab0-lab4 (powinny zostać
+  uzupełnione do piątku)
+- przeczytać rozdział 8 (PROGRAMMING WITH THE X87 FPU)
+  z Intel® 64 and IA-32 Architectures Software Developer’s Manual
+  Proszę zwrócić szczególną uwagę na: 
+  - operacje na rejestrach kontrolnym i statusu (np. zmiana precyzji czy trybu zaokrąglania)
+  - wywoływanie wyjątków (dzielenie przez zero, precyzja itp)
+  - obserwację trybu zaokrąglania
+
+W ramach zadań z Lab4 będziecie Państwo musieli napisać program łącząc C i
+asemblera, w którym zademonstrujecie wpływ zmiany trybu działania FPU na wynik
+działania obliczeń zmiennoprzecinkowych. Proszę przypomnieć sobie składnię języka
+C i poćwiczyć programowanie z wykorzystaniem jednostki zmiennoprzecinkowej.
+
+

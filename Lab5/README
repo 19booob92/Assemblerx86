@@ -1,0 +1,100 @@
+
+
+
+Program oblicza calke z funkcji 1/x w przedzialach calkowania: (0,001; 1000)
+Ponadto po wykonaniu obliczen i pomiarze czasu, program zmienia wartosc dokladnosci jednostki FPU, a nastpenie znow oblicza calke i czas wykonywania funkcji
+
+Program porównuje czas obliczania całki przy użyciu instrukcji:
+*  SSE (z dokładnością podwujną oraz pojedynczą)
+*  FPU
+
+wynik dla SIMD z pojedyncza dokładnością jest wielokrotnie szybszy (w zależności od CPU wzrost szybkości jest 4 lub nawet ok 6 krotny) względem programu napisanego przyużyciu poleceń FPU. Dzieje się tak dlatego że poprzedni program był bardzo nie optymalny, natomiast wzrotst 4 krotny jest zjawiskiem spodziewanym.
+
+Błędy które powodowały błędy wyniku  wprzypadku gdy wszystie funkcje były wywoływane jedna po drugiej wynikały z kolizji w rejstrze XMM4 gdzie przechowuje sumy w obu przypadkach, blad naprawilem.
+
+uruchamianie programu:
+make
+make test
+make clean
+
+program make nie wyrzuca juz bledu przy testowaniu programu, 
+program oblicza calke z pojedyncza precyzja w czasie bardzo zblizonym do 
+czasu uzyskanego przez Pana w programie z folderu common.
+
+natomiast czas wykonywania oliczen z podwujna precyzja, jest o wiele mniejszy od
+czasu uzyskiwanego poprzednio, jednak nadal nie znacznie przekraca 1e7 cykli.
+
+Dlugie czasy, jakie wystepowaly w poprzedniej wersji programu spowodowane byly nieoptymalnym rozmieszczeniem instrukcji wewnatrz programu, np wewnatrz petli znajdowaly sie odwolanai do pamieci, czy tez operacje ktre nie wymagaly interakcji z iteratorem.
+
+Ponadto zorganizowalem petle tak, aby wg zrodel mowiacych o optymalizacji kodu, sprawdzanie warunkow nastepowalo szybciej (dowiedzialem sie ze w CPU > Pentium 4 bardziej optymalne jest dekrementowanie iteratora i skok jnz niż używanie skoków np ja)
+
+
+
+
+Nie spodziewałem się że zajdzie potrzeba wywoływania tej samej funkcji w tym samym pliku, bez ponownego uruchomienia programu, w każdym razie teraz można wywoływać kilkakrotnie obie te funkcje, nie rozumiem natomiast dlaczego uzyskuje Pan tak duże czasy kiedy ja również na LAKu (na początku roku mówił Pan że to LAK jest wyznacznikiem i programy maja dobrze działać właśnie tam) otrzymuję za każdym razem następujące czasy:
+
+
+Wynik wynosi (SINGLE): 13.390426 
+Czas obliczania całki z funkcji 1 / x  : 4166708 
+
+Wynik wynosi (SINGLE): 13.390426 
+Czas obliczania całki z funkcji 1 / x  : 4166692 
+
+Wynik wynosi (DOUBLE): 13.393727 
+Czas obliczania całki z funkcji 1 / x  : 13095096 
+
+Wynik wynosi (DOUBLE): 13.393727 
+Czas obliczania całki z funkcji 1 / x  : 13134100 
+
+Wynik wynosi calka na FPU: 13.392727 
+Czas obliczania całki z funkcji 1 / x  : 28571500 
+
+
+jak widać czas jest wielokrotnie szybszy niz na FPU
+kolejna próba:
+
+
+Wynik wynosi (SINGLE): 13.390426 
+Czas obliczania całki z funkcji 1 / x  : 4166772 
+
+Wynik wynosi (SINGLE): 13.390426 
+Czas obliczania całki z funkcji 1 / x  : 4180760 
+
+Wynik wynosi (DOUBLE): 13.392727 
+Czas obliczania całki z funkcji 1 / x  : 13095096 
+
+Wynik wynosi (DOUBLE): 13.392727 
+Czas obliczania całki z funkcji 1 / x  : 13110120 
+
+Wynik wynosi calka na FPU: 13.392727 
+Czas obliczania całki z funkcji 1 / x  : 28639288 
+
+
+ i jeszcze jedna próba:
+
+Wynik wynosi (SINGLE): 13.390426 
+Czas obliczania ca��ki z funkcji 1 / x  : 4166744 
+
+Wynik wynosi (SINGLE): 13.390426 
+Czas obliczania ca��ki z funkcji 1 / x  : 4166680 
+
+Wynik wynosi (DOUBLE): 13.392727 
+Czas obliczania ca��ki z funkcji 1 / x  : 13095108 
+
+Wynik wynosi (DOUBLE): 13.392727 
+Czas obliczania ca��ki z funkcji 1 / x  : 13147556 
+
+Wynik wynosi calka na FPU: 13.392727 
+Czas obliczania ca��ki z funkcji 1 / x  : 28583092 
+
+
+
+Sposób w jaki rozwiązałem problem:
+# czyszczenie rejestru gdzie sumowane sa wyniki w celu wielokrotnego 
+# przenosze wartosc 0 w systemie hexadecymalnym, zakodowaną na 128 bitach, 
+# tak aby od razu wypelnila caly rejestr xmm4 przez koniecznosci propagowania danej
+# gdzie kopiuje sume calki, wynik po ponownym wywolaniu funkji
+# byl podwojony poniewaz nie zerowalem tego rejestru, nie spodziewajac
+# sie ze zajdzie potrzeba kilkukrotnego wywolywania samej funkcji
+# z nie calego programu
+

@@ -1,0 +1,6 @@
+Program dodaje dlugie liczny w formacie hex i wypisuje je w postaci BIN wraz z 
+wynikiem. Plik makefile zawiera funkcje clean oraz test, nie ma wywolan echa 
+poniewaz nie udalo mi sie znalezc informacji o przesylaniu w ten sposob 2 danych.
+Kazda funkcja wywolywana w programie znajduje sie w osobnym pliku. Dane wczytywane 
+sa z klawiatury. W pliku program_funkcje znajduje se kod w C, z zaimplementowanymi
+funkcjami w tym samym jezyku, plik program.c zawiera wlasciwy kod programu.

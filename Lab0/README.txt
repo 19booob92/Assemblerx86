@@ -1,0 +1,1 @@
+Pogram wczytuje z domyslnego strumienia (w tym wypadku jest to klawiatura) dane wprowadzone przez uzytkownika. Utworzylem zmienna (buffor) ktora jest w stanie zmiescic 15 bajtow danych. Numery funkcji systemowych, oraz przerwania umiescilem w odpowiendich etykietach. Program wypisuje na ekran (domyslny strumien) Informacje o danych ktore wprowadzil uzytkowik.

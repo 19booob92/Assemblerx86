@@ -1,0 +1,6 @@
+Program oblicza calke z funkcji 1/x w przedzialach calkowania: (0,001; 1000)
+Ponadto po wykonaniu obliczen i pomiarze czasu, program zmienia wartosc dokladnosci jednostki FPU, a nastpenie znow oblicza calke i czas wykonywania funkcji
+Calka liczona jest z dobra dokladnoscia, jednak czas wykonywania funkcji napisanej w asmeblerze jest nieoczekiwanie dluzszy niz czas wykonywania tego samego algorytmu w funkcji napisanej w jezyku C, przypuszczam ze moze to byc spowodowanie wywolywaniem funkcji mierzacej czas, na poziomie jezyka C, a nie asemblera. Dokladnosc oblczen w obu przypadkach jest jednak taka sama. 
+Progam oblicza calke metoda prostokatow.
+Po zmianie dokladnosci, ukladu FPU, wynik funkcji calkujacej jest znacznie bardziej nie dokladny, co prawda funkcja wykonuje sie szybciej jednak nie jest to proporcjonalny wzrost wzgledem utraty dokladnosci.
+Za pomoca komendy make test2 wlaczamy program krory oblicza calke poprzez metode napisana w jezyku C, natomiast make test uruchamia program z funkcja napisana w asemblerze

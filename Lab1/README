@@ -1,0 +1,18 @@
+Program działa
+Wykrywa typy liczb tj.: BIN DEC OCT HEX
+Informuje użytkownika o typie wpisanej przez niego liczby
+dla 0x - hexadecymal
+dla 0b - binarna
+dla 0c - ósemkowa
+bez przedrostka - liczby dziesiętne
+
+Ma możliwość wyrównania tekstu do UPPERCASE lub LOWERCASE
+(pytanie do użytkownika o wybór)
+Wykrywa czy znaki znajdują się w przeszukiwanym przedzialeDziala rownież, konwersja z OCT na DEC/BIN/HEX
+			    HEX na DEC/BIN/OCT
+			    BIN na DEC/BIN/OCT
+Program sprawdza czy wpisane liczby są poprawne, wypisuje wszystkie konwersje
+
+NIE MA:
+	funkcji echo, ponieważ nie do końca rozumiem jak miałoby to działać, a przypuszczam że nie chodzi o echo dana | nazwa_programu
+	Ponadto program nie zamienia liczb dziesiętnych nainne typy 

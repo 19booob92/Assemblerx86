@@ -1,0 +1,13 @@
+Zmienilem koncepcje wyznaczania rozmiaru pamieci cache, tym razem
+posluzylem sie wykresem kt√ry przedstawia spadki wydajnosci w czasie
+gdy pamiec cach jednego poziomu jest zapelniana. Spadek ten jest 
+spowodowany zapelnieniem calego cache L1 i potrzebƒÖ wykorzystywania
+nastepnych bardziej oddalonych od procesora pamieci podrecznych.
+
+Na serwerze LAK mozna jedynie odczytac spadek przy zapelnieniu 256 KB
+co oznacza, ze jeden z poziomow pamieci ma rozmiar = 256 KB, jak wykazalem we wczesniejszej wersji programu pamiec L1 ma rozmiar 32 KB, ponadto spadki wydajnosci (dlu≈szy czas wykonywania obliczen) mozna zauwazyc rozwniez dla ok 4096 KB, co oznacza ze poziom L3 pamieci ma wlasnie taka objetosc.
+
+W celu dokonania pomiarow, utworzylem tablice, ktra zapelniam kolejno
+roznymi ilosciami danych (sa to potegi cyfry 2) poniewaz cache ma zawsze
+rozmiar o taich wartosciach.
+Do komorek w danym przedziale odwoluje sie losowo.
